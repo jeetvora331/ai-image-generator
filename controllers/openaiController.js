@@ -6,9 +6,10 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
+	const { prompt } = req.body;
 	try {
 		const response = await openai.createImage({
-			prompt: "panda drinking coffee",
+			prompt,
 			n: 1,
 			size: "512x512",
 		});

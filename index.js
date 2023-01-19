@@ -4,6 +4,9 @@ const port = dotenv.PORT || 5000;
 
 const app = express();
 
-app.use("/openai",require("./routes/openaiRoutes")
+app.use(express.json());
+app.use(express.urlencoded({ extended: flase }));
+
+app.use("/openai", require("./routes/openaiRoutes"));
 
 app.listen(port, () => console.log("listening on port " + port));
